@@ -25,7 +25,7 @@ def ExportCameras(external_cameras_path):
             try:
                 first_elem, waste = line.split(' ', 1)
                 if first_elem == "#":
-                    print(first_elem)
+                    pass
                 elif k%2 != 0:
                     image_id, qw, qx, qy, qz, tx, ty, tz, camera_id, name = line.split(" ", 9)
                     q = np.array([float(qw), float(qx), float(qy), float(qz)])
@@ -82,7 +82,7 @@ def main():
     
     camera_ori = ExportCameras(external_cameras_path)
     
-    out_file = open(r"{}/ssssssssssssss.txt".format(output_dir), 'w')
+    out_file = open(r"{}/colmap_camera_poses.txt".format(output_dir), 'w')
     for element in camera_ori:
         out_file.write(element)
         out_file.write('\n')
